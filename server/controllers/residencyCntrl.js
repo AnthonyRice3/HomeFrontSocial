@@ -3,7 +3,7 @@ import {prisma} from "../config/prismaConfig.js"
 
 
 export const createResidency = asyncHandler(async (req, res) => {
-    const { title, description, price, address, city, country, facilities, image, userEmail } = req.body.data;
+    const { title, description, price, area, address, city, state, country, facilities, type, property, images, userEmail, ac, wifi, cable, pool, heating, laundry, dryer, microwave, gym, washer, refrigerator, shower } = req.body.data;
 
     console.log(req.body.data)
     try{
@@ -13,12 +13,44 @@ export const createResidency = asyncHandler(async (req, res) => {
                 title, 
                 description, 
                 price, 
+                area,
                 address, 
                 city,
+                state,
                 country, 
                 facilities, 
-                image, 
+                type,
+                property,
+                images, 
+                ac,
+                        wifi,
+                        cable,
+                        pool,
+                        heating,
+                        laundry,
+                        dryer,
+                        microwave,
+                        gym,
+                        washer,
+                        refrigerator,
+                        shower,
                 owner : { connect : {email: userEmail}},
+                // resdInfo: {
+                //     create: {
+                //         ac,
+                //         wifi,
+                //         cable,
+                //         pool,
+                //         heating,
+                //         laundry,
+                //         dryer,
+                //         microwave,
+                //         gym,
+                //         washer,
+                //         refrigerator,
+                //         shower
+                //     }
+                // }
             },
         });
 
@@ -34,7 +66,18 @@ export const createResidency = asyncHandler(async (req, res) => {
 
 
 export const getAllResidencies = asyncHandler(async(req, res) => {
+    const query = req.query;
     const residencies = await prisma.residency.findMany({
+        where:{
+            city: query.city || undefined,
+            type: query.type || undefined,
+            property: query.property || undefined,
+            bedroom: parseInt(query.bedroom) || undefined,
+            price: {
+              gte: parseInt(query.minPrice) || undefined,
+              lte: parseInt(query.maxPrice) || undefined, 
+            }
+        },
         orderBy: {
             createdAt: "desc",
         },

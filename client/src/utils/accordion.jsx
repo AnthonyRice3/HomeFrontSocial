@@ -1,23 +1,23 @@
 import { HiShieldCheck } from "react-icons/hi";
-import { MdCancel, MdAnalytics } from "react-icons/md";
+import { MdCancel, MdAnalytics, MdDangerous, MdMoney, MdAir, MdFence } from "react-icons/md";
 const data = [
   {
     icon: <HiShieldCheck/>,
-    heading: "Best interest rates on the market",
+    heading: "Security & Privacy",
     detail:
-      "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
+      "Fences provide a physical barrier that enhances security, keeping unwanted visitors out and giving homeowners privacy from neighbors and passersby.",
   },
   {
-    icon: <MdCancel />,
-    heading: "Prevent unstable prices",
+    icon: <MdMoney />,
+    heading: "Property Value & Curb Appeal",
     detail:
-      "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
+      "A well-built fence can boost a property’s value by improving aesthetics and defining property boundaries, making it more appealing to potential buyers.",
   },
   {
-    icon: <MdAnalytics />,
-    heading: "Best price on the market",
+    icon: <MdFence />,
+    heading: "Safety & Protection",
     detail:
-      "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
+      "Fences help keep children and pets safely contained while also providing protection from wildlife or other external hazards, especially in areas like South Florida.",
   },
 ];
 export default data;

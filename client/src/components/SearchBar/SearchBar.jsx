@@ -1,3 +1,4 @@
+import { Select } from "@mantine/core";
 import React from "react";
 import { HiLocationMarker } from "react-icons/hi";
 
@@ -11,6 +12,16 @@ const SearchBar = ({ filter, setFilter }) => {
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
+      <Select 
+                          mt="md"
+                          comboboxProps={{ withinPortal: true }}
+                          data={['1 ', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
+                          placeholder="Bedrooms"
+                          label="Amount of Bedrooms"
+                          value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+                          
+                        />
       <button className="button">Search</button>
     </div>
   );

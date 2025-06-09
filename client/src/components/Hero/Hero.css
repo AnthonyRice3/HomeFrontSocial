@@ -3,12 +3,29 @@
   position: relative;
   z-index: 1;
   padding-bottom: 2rem;
+  background-image: url(../../../public/heroimg.png);
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
 }
 
+.bg-video {
+  
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  
+}
 
 .hero-container {
   justify-content: space-around;
   align-items: flex-end; 
+  
 }
 
 
@@ -18,12 +35,23 @@
 }
 .hero-title {
   position: relative;
-  z-index: 1;
+  z-index: 99;
+  padding-top: 4rem;
+  
+  h1{
+    color: black;
+  }
 }
 .hero-title > h1 {
   font-weight: 600;
   font-size: 3.8rem;
   line-height: 4rem;
+  z-index: 99;
+}
+
+span{
+  z-index: 99;
+  color: rgb(16, 46, 179);
 }
 .orange-circle {
   height: 4rem;
@@ -32,16 +60,29 @@
   border-radius: 999px;
   position: absolute;
   right: 28%;
-  top: -10%;
+  top: 25%;
   z-index: -1;
 }
+
+.keyword {
+  padding-top: 1.3rem;
+}
+
+.search-button{
+  padding-top: 4.5rem;
+}
+
+.search{
+  margin-top: 2.5rem;
+}
 .search-bar {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.582);
   border-radius: 5px;
   border: 3px solid rgba(120, 120, 120, 0.374);
   padding: 0.5rem 1rem;
   width: 100%;
   justify-content: space-between;
+  z-index: 99;
 }
 .search-bar > input {
   border: none;
@@ -56,7 +97,7 @@
     font-size: 2rem;
 }
 .stat>:nth-child(1)>:last-child{
-    color: orange;
+    color: blue;
 }
 /* right side */
 

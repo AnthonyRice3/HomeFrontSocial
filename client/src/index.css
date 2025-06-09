@@ -1,5 +1,5 @@
 :root {
-  --primary: #1f3e72;
+  --primary: #212121;
   --secondary: rgba(255, 255, 255, 0.78);
   --black: #131110;
   --blue-gradient: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
@@ -17,7 +17,7 @@
   scroll-behavior: smooth;
 }
 .wrapper {
-  background-color: rgb(174, 115, 37);
+  background-color: whitesmoke;
 }
 a {
   color: inherit;
@@ -70,7 +70,7 @@ a {
 }
 
 .primaryText {
-  color: #1f3e72;
+  color: #2c2c2c;
   font-weight: bold;
   font-size: 2rem;
 }
@@ -80,7 +80,7 @@ a {
   font-size: 0.9rem;
 }
 .orangeText {
-  color: orange;
+  color: rgb(0, 60, 255);
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -88,7 +88,7 @@ a {
 /* media queries */
 @media (min-width: 1536px) {
   .innerWidth {
-    max-width: 1280px;
+    max-width: 1480px;
     margin: auto;
   }
 }

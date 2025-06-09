@@ -1,7 +1,7 @@
 .App{
   position: relative;
   overflow-x: clip;
-  background-color: rgb(174, 115, 37);
+  background-color: rgb(255, 255, 255);
 }
 .App>:nth-child(1)
 {

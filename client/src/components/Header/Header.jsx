@@ -25,11 +25,11 @@ const Header = () => {
   };
 
   return (
-    <section className="h-wrapper" style={{ background: headerColor }}>
+    <section className="h-wrapper" >
       <div className="flexCenter innerWidth paddings h-container">
         {/* logo */}
         <Link to="/">
-          <img src="./logo.png" alt="logo" width={100} />
+          <img src="./logotrns.png" alt="logo" width={100} />
         </Link>
         {/* menu */}
         <OutsideClickHandler
@@ -42,13 +42,13 @@ const Header = () => {
             className="flexCenter h-menu"
             style={getMenuStyles(menuOpened)}
           >
-            <NavLink to="/properties">Properties</NavLink>
+            <NavLink to="./deals">Deals</NavLink>
             
             <a href="mailto:rnarice3@gmail.com@gmail.com">Email</a>
             <a href="tel:+4044275153">Call Us</a>
 
 
-            <div onClick={handleAddPropertyClick}>Add Property</div>
+            <div onClick={handleAddPropertyClick}>Book Appointment</div>
             <AddPropertyModal 
             opened= {modalOpened}
             setOpened = {setModalOpened}

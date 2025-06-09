@@ -23,7 +23,7 @@ const Value = () => {
         {/* left side */}
         <div className="v-left">
           <div className="image-container">
-            <img src="./value.png" alt="" />
+            <img src="./15.jpg" alt="" />
           </div>
         </div>
 
@@ -34,9 +34,8 @@ const Value = () => {
           <span className="primaryText">Value We Give to You</span>
 
           <span className="secondaryText">
-            We always ready to help by providijng the best services for you.
-            <br />
-            We beleive a good blace to live can make your life better
+            We're always ready to help by providijng the best services for you. Good Fencing is foundational!
+          
           </span>
 
           <Accordion

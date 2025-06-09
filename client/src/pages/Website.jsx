@@ -8,6 +8,7 @@ import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 import Residencies from "../components/Residencies/Residencies";
 import Value from "../components/Value/Value";
+import Cities from '../components/Cities/Cities';
 
 const Website = () => {
   return (
@@ -18,8 +19,9 @@ const Website = () => {
         <Hero />
       </div>
       <Companies />
-      <Residencies/>
+      <Cities />
       <Value/>
+      <Residencies/>
       <Contact/>
       <GetStarted/>
       
