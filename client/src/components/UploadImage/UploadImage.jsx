@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AiOutlineCloudUpload } from "react-icons/ai";
-import "./UploadImage.css";
 import { Button, Group } from '@mantine/core';
 
 
@@ -34,24 +33,25 @@ const UploadImage = ({
         )
     }, [])
   return (
-    <div className="flexColCenter uploadWrapper">
+    <div className="flexColCenter gap-8 mt-12">
         {
             !imageURL ? (
-                <div className="flexColCenter uploadZone"
-                onClick = {() => widgetRef.current?.open()}
+                <div
+                  className="flexColCenter w-4/5 h-[25rem] border-2 border-dashed border-gray-400 cursor-pointer"
+                  onClick={() => widgetRef.current?.open()}
                 >
                     <AiOutlineCloudUpload size={50} color="grey" />
                     <span>Upload</span>
                 </div>
             ) : (
-                <div className="uploadImage"
-                onClick = {() => widgetRef.current?.open()}
+                <div
+                  className="w-4/5 h-[25rem] rounded-[10px] cursor-pointer overflow-hidden"
+                  onClick={() => widgetRef.current?.open()}
                 >
-                    <img src={imageURL} alt='/' />
+                    <img src={imageURL} alt='/' className="w-full h-full object-cover" />
                 </div>
-
             )
-        } 
+        }
         <Group position="center" mt={"xl"}>
             <Button variant="default" onClick={prevStep}>Back</Button>
             <Button onClick={handleNext} disabled={!imageURL}>Next</Button>

@@ -1,72 +1,32 @@
 import React, { useState } from "react";
-import "./Header.css";
 import { BiMenuAltRight } from "react-icons/bi";
 import { getMenuStyles } from "../../utils/common";
-import useHeaderColor from "../../hooks/useHeaderColor";
-import OutsideClickHandler from "react-outside-click-handler";
 import { Link, NavLink } from "react-router-dom";
-import { useAuth0,  } from "@auth0/auth0-react";
-import ProfileMenu from "../ProfileMenu/ProfileMenu.jsx";
-import AddPropertyModal from "../AddPropertyModal/AddPropertyModal.jsx";
-import useAuthCheck from "../../hooks/useAuthCheck.jsx"
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
-  const headerColor = useHeaderColor();
-  const [modalOpened, setModalOpened] = useState(false);
-  const {loginWithRedirect, isAuthenticated, user, logout} = useAuth0();
-  const {validateLogin} = useAuthCheck()
-
-  const handleAddPropertyClick = () => {
-    if(validateLogin())
-    {
-      setModalOpened(true);
-    }
-  };
 
   return (
-    <section className="h-wrapper" >
-      <div className="flexCenter innerWidth paddings h-container">
+    <section className="sticky top-0 z-[99] bg-white">
+      <div className="flexCenter innerWidth paddings py-4 text-black font-bold justify-between">
         {/* logo */}
         <Link to="/">
           <img src="./logotrns.png" alt="logo" width={100} />
         </Link>
+
         {/* menu */}
-        <OutsideClickHandler
-          onOutsideClick={() => {
-            setMenuOpened(false);
-          }}
-        >
-          <div
-            // ref={menuRef}
-            className="flexCenter h-menu"
-            style={getMenuStyles(menuOpened)}
-          >
-            <NavLink to="./deals">Deals</NavLink>
-            
-            <a href="mailto:rnarice3@gmail.com@gmail.com">Email</a>
-            <a href="tel:+4044275153">Call Us</a>
-
-
-            <div onClick={handleAddPropertyClick}>Book Appointment</div>
-            <AddPropertyModal 
-            opened= {modalOpened}
-            setOpened = {setModalOpened}
-            />
-
-            {!isAuthenticated ? (
-              <button className="button" onClick={loginWithRedirect}>
-                Login
-              </button>
-            ) : (
-              <ProfileMenu user={user} logout={logout} />
-            )}
-          </div>
-        </OutsideClickHandler>
-
-        {/* for medium and small screens */}
         <div
-          className="menu-icon"
+          className="flex items-center gap-8 [&>*]:cursor-pointer max-md:text-[#131110] max-md:absolute max-md:gap-8 max-md:font-medium max-md:flex-col max-md:right-16 max-md:top-12 max-md:bg-white max-md:rounded-[10px] max-md:transition-all max-md:duration-200 max-md:items-start max-md:p-12 max-md:shadow-md"
+          style={getMenuStyles(menuOpened)}
+        >
+          <a href="mailto:diamondfence0@gmail.com">diamondfence0@gmail.com</a>
+          <a href="tel:+12393088688">+1 (239) 308-8688</a>
+          <a href="#contact-us">Contact</a>
+        </div>
+
+        {/* hamburger for small screens */}
+        <div
+          className="hidden max-md:block cursor-pointer"
           onClick={() => setMenuOpened((prev) => !prev)}
         >
           <BiMenuAltRight size={30} />

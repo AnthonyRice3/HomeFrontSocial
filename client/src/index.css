@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --primary: #212121;
   --secondary: rgba(255, 255, 255, 0.78);
@@ -9,93 +13,59 @@
   --shadow: 0px 23px 21px -8px rgba(136, 160, 255, 0.25);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-}
-.wrapper {
-  background-color: whitesmoke;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-.paddings {
-  padding: 1.5rem;
-}
-
-.innerWidth {
-  width: 100%;
-}
-
-.flexCenter {
-  display: flex;
-  row-gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.flexStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.flexEnd {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.flexColCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.flexColStart {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-.flexColEnd {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.primaryText {
-  color: #2c2c2c;
-  font-weight: bold;
-  font-size: 2rem;
-}
-
-.secondaryText {
-  color: rgb(140 139 139);
-  font-size: 0.9rem;
-}
-.orangeText {
-  color: rgb(0, 60, 255);
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-/* media queries */
-@media (min-width: 1536px) {
-  .innerWidth {
-    max-width: 1480px;
-    margin: auto;
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+  a {
+    @apply text-inherit no-underline;
   }
 }
 
-@media (min-width: 640px) {
+@layer components {
+  .wrapper {
+    @apply bg-gray-100;
+  }
   .paddings {
-    padding: 4rem;
+    @apply p-6 sm:p-16;
+  }
+  .innerWidth {
+    @apply w-full 2xl:max-w-[1480px] 2xl:mx-auto;
+  }
+  .flexCenter {
+    @apply flex justify-center items-center flex-wrap gap-8;
+  }
+  .flexStart {
+    @apply flex justify-start items-center;
+  }
+  .flexEnd {
+    @apply flex justify-end items-center;
+  }
+  .flexColCenter {
+    @apply flex flex-col justify-center items-center;
+  }
+  .flexColStart {
+    @apply flex flex-col justify-center items-start;
+  }
+  .flexColEnd {
+    @apply flex flex-col justify-center items-end;
+  }
+  .primaryText {
+    @apply text-[#2c2c2c] font-bold text-3xl;
+  }
+  .secondaryText {
+    @apply text-[rgb(140,139,139)] text-[0.9rem];
+  }
+  .orangeText {
+    @apply text-[rgb(0,60,255)] text-2xl font-semibold;
+  }
+  .button {
+    @apply font-semibold py-2 px-4 rounded cursor-pointer bg-[#4066ff] text-white border-none transition-all duration-200;
+  }
+  .white-gradient {
+    @apply absolute w-80 h-80 bg-white/50 blur-[100px] rounded-[100px];
   }
 }
 

@@ -1,53 +1,51 @@
-import React from "react";
+﻿import React from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
-import "./Residencies.css";
 import { sliderSettings } from "../../utils/common";
 import PropertyCard from "../PropertyCard/PropertyCard";
-import useProperties from "../../hooks/useProperties";
-import {PuffLoader} from 'react-spinners'
+
+const staticProperties = [
+  { id: "1", image: "./1.jpg", price: "1,200", title: "Wood Privacy Fence",   description: "Classic wood privacy fence for residential yards." },
+  { id: "2", image: "./2.jpg", price: "1,800", title: "Chain Link Fence",     description: "Durable chain link fencing for commercial and residential use." },
+  { id: "3", image: "./3.jpg", price: "2,500", title: "Aluminum Ornamental",  description: "Elegant aluminum ornamental fence with powder coat finish." },
+  { id: "4", image: "./4.jpg", price: "3,200", title: "Vinyl Privacy Fence",  description: "Low-maintenance vinyl privacy fence in multiple styles." },
+  { id: "5", image: "./1.jpg", price: "950",   title: "Pool Fence",           description: "Code-compliant pool enclosure fencing for safety." },
+  { id: "6", image: "./2.jpg", price: "1,450", title: "Cedar Split Rail",     description: "Rustic cedar split rail fence for open properties." },
+];
+
+const SlideNextButton = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="flexCenter gap-4 absolute -top-16 right-0">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className="text-xl py-[0.2rem] px-[0.8rem] text-blue-600 border-none rounded bg-[#EEEEFF] cursor-pointer"
+      >
+        &lt;
+      </button>
+      <button
+        onClick={() => swiper.slideNext()}
+        className="text-xl py-[0.2rem] px-[0.8rem] text-blue-600 border-none rounded bg-white shadow cursor-pointer"
+      >
+        &gt;
+      </button>
+    </div>
+  );
+};
 
 const Residencies = () => {
-
-  const {data, isError, isLoading} = useProperties()
-
-  if(isError){
-    return(
-      <div className='wrapper'>
-        <span>Error while fetching data</span>
-      </div>
-    )
-  }
-
-  if(isLoading){
-    return(
-      <div className="wrapper flexCenter" style={{height: "60vh"}}>
-        <PuffLoader
-        height="80"
-        width="80"
-        radius={1}
-        color="#4066ff"
-        aria-label="puff-loading"
-        />
-      </div>
-    )
-  }
-
-
   return (
-    <div id="residencies" className="r-wrapper">
-      <div className="paddings innerWidth r-container">
-        <div className="flexColStart r-head">
-          <span className="orangeText">Best Choices</span>
-          <span className="primaryText">Popular Residencies</span>
+    <div id="residencies">
+      <div className="paddings innerWidth flexColStart gap-8 relative overflow-hidden">
+        <div className="flexColStart mb-8">
+          <span className="orangeText">Our Work</span>
+          <span className="primaryText">Popular Fence Styles</span>
         </div>
         <Swiper {...sliderSettings}>
           <SlideNextButton />
-          {/* slider */}
-          {data.slice(0, 8).map((card, i) => (
+          {staticProperties.map((card, i) => (
             <SwiperSlide key={i}>
-              <PropertyCard card={card}/>
+              <PropertyCard card={card} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -57,17 +55,3 @@ const Residencies = () => {
 };
 
 export default Residencies;
-
-const SlideNextButton = () => {
-  const swiper = useSwiper();
-  return (
-    <div className="flexCenter r-buttons">
-      <button onClick={() => swiper.slidePrev()} className="r-prevButton">
-        &lt;
-      </button>
-      <button onClick={() => swiper.slideNext()} className="r-nextButton">
-        &gt;
-      </button>
-    </div>
-  );
-};

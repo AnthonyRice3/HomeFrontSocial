@@ -1,14 +1,13 @@
 import React from "react";
-import './Companies.css'
 const Companies = () => {
   return (
-    <section className="c-wrapper">
-      <div className="paddings innerWidth flexCenter c-container">
-      <img src="./Des1.png" alt="" />
-        <img src="./Des2.png" alt="" />
-        <img src="./Des3.png" alt="" />
-        <img src="./Des4.png" alt="" />
-        <img src="./Des5.png" alt="" />
+    <section>
+      <div className="paddings innerWidth flex justify-around flex-wrap gap-4">
+        <img src="./Des1.png" alt="" className="w-56 z-[99]" />
+        <img src="./Des2.png" alt="" className="w-56 z-[99]" />
+        <img src="./Des3.png" alt="" className="w-56 z-[99]" />
+        <img src="./Des4.png" alt="" className="w-56 z-[99]" />
+        <img src="./Des5.png" alt="" className="w-56 z-[99]" />
       </div>
     </section>
   );

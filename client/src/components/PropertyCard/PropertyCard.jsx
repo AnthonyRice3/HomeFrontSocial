@@ -1,24 +1,16 @@
 import React from 'react'
-import './PropertyCard.css'
-import { AiFillHeart} from 'react-icons/ai'
 import {truncate} from 'lodash'
-import { useNavigate } from 'react-router-dom'
-import Heart from '../Heart/Heart'
 
 const PropertyCard = ({card}) => {
-
-  const navigate = useNavigate();
   return (
-    <div className="flexColStart r-card" onClick={()=>navigate(`../properties/${card.id}`)}>
-        <Heart id={card?.id}/>
-        <img src={card.image} alt="home" />
-            
-        <span className="secondaryText r-price">
-            <span style={{ color: "orange" }}>$</span>
-            <span>{card.price}</span>
-        </span>
-        <span className="primaryText">{truncate(card.title, {length: 15})}</span>
-        <span className="secondaryText">{truncate(card.description, {length: 80})}</span>
+    <div className="flexColStart gap-[0.6rem] p-4 rounded-[10px] max-w-max mx-auto transition-all duration-300 z-0 relative hover:scale-[1.025] hover:shadow-custom hover:bg-gradient-to-b hover:from-transparent hover:to-[rgba(136,160,255,0.46)]">
+      <img src={card.image} alt="fence" className="w-60 h-40 rounded-[10px] object-cover" />
+      <span className="secondaryText">
+        <span style={{ color: "orange" }}>$</span>
+        <span>{card.price}</span>
+      </span>
+      <span className="primaryText text-xl font-semibold">{truncate(card.title, {length: 20})}</span>
+      <span className="secondaryText w-60">{truncate(card.description, {length: 80})}</span>
     </div>
   )
 }

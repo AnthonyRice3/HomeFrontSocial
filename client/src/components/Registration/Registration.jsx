@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Registration.css";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -18,12 +17,15 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="registration-container">
-      <form className="registration-form" onSubmit={handleSubmit}>
-        <h2>Sign Up</h2>
+    <div className="flex justify-center items-center h-screen bg-gradient-to-br from-[#667eea] to-[#764ba2]">
+      <form
+        className="bg-white p-8 rounded-xl shadow-lg w-full max-w-sm text-center"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="mb-6 text-[#333] text-2xl font-bold">Sign Up</h2>
 
-        <div className="input-group">
-          <label>Name</label>
+        <div className="mb-4 text-left">
+          <label className="block mb-2 font-bold text-[#555]">Name</label>
           <input
             type="text"
             name="name"
@@ -31,11 +33,12 @@ const RegistrationForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            className="w-full px-3 py-3 border border-[#ccc] rounded-lg text-base"
           />
         </div>
 
-        <div className="input-group">
-          <label>Email</label>
+        <div className="mb-4 text-left">
+          <label className="block mb-2 font-bold text-[#555]">Email</label>
           <input
             type="email"
             name="email"
@@ -43,11 +46,12 @@ const RegistrationForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            className="w-full px-3 py-3 border border-[#ccc] rounded-lg text-base"
           />
         </div>
 
-        <div className="input-group">
-          <label>Password</label>
+        <div className="mb-4 text-left">
+          <label className="block mb-2 font-bold text-[#555]">Password</label>
           <input
             type="password"
             name="password"
@@ -55,10 +59,16 @@ const RegistrationForm = () => {
             value={formData.password}
             onChange={handleChange}
             required
+            className="w-full px-3 py-3 border border-[#ccc] rounded-lg text-base"
           />
         </div>
 
-        <button type="submit">Register</button>
+        <button
+          type="submit"
+          className="w-full py-3 bg-[#667eea] text-white text-base border-none rounded-lg cursor-pointer transition-colors duration-300 hover:bg-[#5645a2]"
+        >
+          Register
+        </button>
       </form>
     </div>
   );
